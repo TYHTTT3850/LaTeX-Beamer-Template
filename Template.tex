@@ -5,6 +5,10 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 
+% ==================== 首行缩进和段落间距设置 ====================
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5\baselineskip}
+
 % ==================== 自定义底部导航栏 (三段式) ====================
 \setbeamertemplate{navigation symbols}{}
 
@@ -152,12 +156,14 @@
         \end{equation}
     \end{block}
 
-    用 alertblock 环境强调：
+\end{frame}
+
+\begin{frame}
+    还用 alertblock 环境强调：
 
     \begin{alertblock}{alertblock环境}
         要强调的东西
     \end{alertblock}
-
 \end{frame}
 
 % ---------------- 第二部分 ----------------
