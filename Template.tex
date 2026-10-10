@@ -109,11 +109,15 @@
 % ==================== 自动生成章节提示页 ====================
 \AtBeginSection[]{
   \begin{frame}{当前进度}
-    % currentsection: 仅高亮当前章节，其他章节字体变淡（半透明）
+    % currentsection: 仅高亮当前章节，其他章节字体变淡(半透明)
     % hideallsubsections: 隐藏所有子章节，保持页面排版简洁
-    \tableofcontents[currentsection, hideallsubsections]
+    \tableofcontents[currentsection]
   \end{frame}
 }
+
+% ==================== 表格设置 ====================
+\usepackage{array}
+\usepackage{booktabs}
 
 % ==================== 临时添加当前需要用的宏包 ====================
 
@@ -136,37 +140,48 @@
   \tableofcontents
 \end{frame}
 
-% ---------------- 第一部分 ----------------
-\section{LaTeX Beamer 基本说明}
+\section{想法}
 
-\begin{frame}[fragile]{基本用法}
-    最基本的 frame 环境结构如下，一个 frame 就是一张幻灯片：
+\begin{frame}{之前的缺点}
     
-    \begin{code}[TeX]
-        \begin{frame}[<参数选项>]{幻灯片主标题}{幻灯片副标题}
-            这里是幻灯片的正文内容。
-        \end|\empty|{frame}
-    \end{code}
-
-    可以使用 block 环境把公式输进去：
-
-    \begin{block}{block环境}
-        \begin{equation}
-            \alpha , \beta
-        \end{equation}
-    \end{block}
+    说明之前方法的缺点。
 
 \end{frame}
 
-\begin{frame}
-    还用 alertblock 环境强调：
+\begin{frame}{作者的思路}
+    
+    说明作者的思路。
 
-    \begin{alertblock}{alertblock环境}
-        要强调的东西
-    \end{alertblock}
 \end{frame}
 
-% ---------------- 第二部分 ----------------
+\section{方法}
+
+\begin{frame}{步骤1}
+    第一步的方法
+\end{frame}
+
+\begin{frame}{步骤2}
+    第二步的方法
+\end{frame}
+
+\begin{frame}{步骤3}
+    第三步的方法
+\end{frame}
+
+\section{实验}
+
+\begin{frame}{数据集}
+    说明用的什么数据集
+\end{frame}
+
+\begin{frame}{评价指标}
+    说明使用的评价指标
+\end{frame}
+
+\begin{frame}{结果}
+    展示各种实验结果：分数，可视化$\cdots\cdots$
+\end{frame}
+
 \section{图片插入}
 
 \begin{frame}{单张图片}
@@ -199,19 +214,84 @@
     \end{figure}
 \end{frame}
 
-% ---------------- 第三部分 ----------------
+\section{表格插入}
+
+\begin{frame}{单张表格}
+    \begin{table}[htbp]%h:here当前位置,t:top页面顶部,b:bottom页面底部,p:page另放一页
+	\caption{表名}\label{表1}
+	\centering
+	\begin{tabular}{p{3cm}<{\centering} p{3cm}<{\centering} p{3cm}<{\centering} p{3cm}<{\centering}}
+		%p{3cm}规定列宽，\centering规定居中对其
+		\toprule[1.5pt]
+		1&2&3&4\\
+		\midrule[0.75pt]
+		内容&内容&内容&内容\\
+		内容&内容&内容&内容\\
+		内容&内容&内容&内容\\
+		\bottomrule[1pt]
+	\end{tabular}
+\end{table}
+\end{frame}
+
+\section{文字与图片或表格联合排版}
+
+\begin{frame}{文字与图片}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            使用 columns 环境实现，文字在左，图片在右。
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \begin{figure}
+                \includegraphics[width=0.8\textwidth]{Figures/时谐电流源J.pdf}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{文字与表格}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            使用 columns 环境实现，文字在左，表格在右。
+        \end{column}
+
+        \begin{column}{0.7\textwidth}
+            \begin{table}[htbp]%h:here当前位置,t:top页面顶部,b:bottom页面底部,p:page另放一页
+	            \caption{表名}\label{表2}
+	            \centering
+	            \begin{tabular}{p{1.5cm}<{\centering} p{1.5cm}<{\centering} p{1.5cm}<{\centering} p{1.5cm}<{\centering}}%p{3cm}规定列宽，\centering规定居中对其
+		            \toprule[1.5pt]
+		            1&2&3&4\\
+		            \midrule[0.75pt]
+		            内容&内容&内容&内容\\
+		            内容&内容&内容&内容\\
+		            内容&内容&内容&内容\\
+		            \bottomrule[1pt]
+	            \end{tabular}
+            \end{table}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \section{引用测试}
 
 \begin{frame}{交叉引用测试}
     单个子图\ref{图名}
 
     多个子图\ref{fig:main}
+
+    表格\ref{表1}
+
+    表格\ref{表2}
 \end{frame}
 
 \begin{frame}{参考文献引用测试}
   引用1\cite{ref1}
 
   引用2\cite{ref2}
+
+  文献\parencite{ref1}
+
+  文献\parencite{ref2}
 \end{frame}
 
 % ---------------- 参考文献 ----------------
