@@ -94,6 +94,8 @@
 \setCJKsansfont{SimSun}[AutoFakeBold=true]
 \setCJKmonofont{SimSun}[AutoFakeBold=true]
 
+\setbeamerfont{subtitle}{family=\rmfamily,series=\mdseries,shape=\itshape,size=\small}%将副标题设置为斜体、较小字号
+
 % ==================== 参考文献设置 (BibLaTeX + Biber) ====================
 % 引入 biblatex 宏包，指定使用 biber 作为后端，样式为数字标号，按引用顺序排序
 \usepackage[backend=biber, style=gb7714-2015, sorting=none]{biblatex}
@@ -121,8 +123,8 @@
 % ==================== 临时添加当前需要用的宏包 ====================
 
 % ---------------- 基本信息 ----------------
-\title[\LaTeX \ Beamer 模板]{\LaTeX \ Beamer 模板}
-\subtitle{子标题}
+\title[\LaTeX \ Beamer Template]{\LaTeX \ Beamer Template}
+\subtitle{subtitle}
 \author[你的名字]{报告人：你的名字}
 \institute[你的实验室或学院]{你的大学}
 \date{}
